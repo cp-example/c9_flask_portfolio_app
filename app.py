@@ -89,6 +89,10 @@ def python_apps_page():
 def contact():
 	return render_template('contact.html')
 
+@app.route('/password_generator')
+def password_generator():
+	return render_template('password_generator.html')
+
 @app.route('/blog', methods=['GET'])
 def blog_page():
   return render_template('blog.html')
