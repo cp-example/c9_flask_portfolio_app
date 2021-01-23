@@ -94,11 +94,18 @@ def contact():
 @app.route('/password_generator', methods=['GET','POST'])
 def password_generator():
 	if request.method == 'GET':
-		return render_template('password_generator.html')
+	  	return render_template('password_generator.html')
 	elif request.method == 'POST':
-		chars = string.digits + string.ascii_letters + string.punctuation
-		print((len)(chars))
-		print(''.join(secrets.choice(chars) for _ in range (40)))
+  	      print(request.form['text'].split())
+  	      total = 0
+  	      try:
+  	      	for str_num in request.form['text'].split():
+  	      		chars = string.digits + string.ascii_letters + string.punctuation
+			print((len)(chars))
+			print(''.join(secrets.choice(chars) for _ in range (40)))
+  	      	return render_template('password_generator.html', result=str(total))
+  	      except ValueError:
+  	      	return "Please try again generating password"
 	
 
 @app.route('/blog', methods=['GET'])
