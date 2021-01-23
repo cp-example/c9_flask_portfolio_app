@@ -97,10 +97,9 @@ def password_generator():
 	  	return render_template('password_generator.html')
 	elif request.method == 'POST':
   	      print(request.form['text'].split())
-  	      total = 0
+  	      chars = string.digits + string.ascii_letters + string.punctuation
   	      try:
-  	      	for str_num in request.form['text'].split():
-  	      		chars = string.digits + string.ascii_letters + string.punctuation
+			chars = string.digits + string.ascii_letters + string.punctuation
 			print((len)(chars))
 			print(''.join(secrets.choice(chars) for _ in range (40)))
   	      	return render_template('password_generator.html', result=str(total))
