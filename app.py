@@ -90,13 +90,9 @@ def python_apps_page():
 def contact():
 	return render_template('contact.html')
 
-@app.route('/password_generator', methods=['GET', 'POST'])
-def password_generator():
-	if request.method == 'GET':
-		return render_template('password_generator.html')
-	elif request.method == 'POST':
-		print("Hello World!")
-
+@app.route('/password_generator')
+def password_generate():
+    return 'Hello, World!'
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
