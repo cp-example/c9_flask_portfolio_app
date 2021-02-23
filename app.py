@@ -99,9 +99,8 @@ def password_generate():
 		
 		for item in request.form['text'].split():
 			chars = string.digits + string.ascii_letters + string.punctuation
-			print(''.join(secrets.choice(chars) for _ in range (40)))
 			
-			return render_template('password_generator.html', result="\n"print(''.join(secrets.choice(chars) for _ in range (40)))
+			return render_template('password_generator.html', result="\n".join(secrets.choice(chars) for _ in range (40)))
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
