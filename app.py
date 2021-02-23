@@ -19,7 +19,6 @@ def home_page():
 def profile(name):
 	return render_template('index.html', name=name)
 
-
 @app.route('/add_numbers', methods=['GET','POST'])
 def add_numbers_post():
 	  # --> ['5', '6', '8']
@@ -91,17 +90,15 @@ def python_apps_page():
 def contact():
 	return render_template('contact.html')
 
-@app.route('/password_generator')
-@app.route('/password_generator', methods=['GET','POST'])
+@app.route('/password_generator', methods=['GET'])
 def password_generator():
 	return render_template('password_generator.html')
 	if request.method == 'GET':
-		return render_template('password_generator.html')
-	elif request.method == 'POST':
 		chars = string.digits + string.ascii_letters + string.punctuation
 		print((len)(chars))
 		print(''.join(secrets.choice(chars) for _ in range (40)))
-	
+		return render_template('password_generator.html')
+
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
