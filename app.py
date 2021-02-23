@@ -95,11 +95,7 @@ def password_generator():
 	if request.method == 'GET':
 		return render_template('password_generator.html')
 	elif request.method == 'POST':
-		print(request.form['text'].split())
-		chars = string.digits + string.ascii_letters + string.punctuation
-		print((len)(chars))
-		print(''.join(secrets.choice(chars) for _ in range (40)))
-		return render_template('password_generator.html')
+		print("Hello World!")
 
 
 @app.route('/blog', methods=['GET'])
