@@ -90,10 +90,12 @@ def python_apps_page():
 def contact():
 	return render_template('contact.html')
 
-@app.route('/password_generator', methods=['GET'])
+@app.route('/password_generator', methods=['GET', 'POST'])
 def password_generator():
-	return render_template('password_generator.html')
 	if request.method == 'GET':
+		return render_template('password_generator.html')
+	elif request.method == 'POST':
+		print(request.form['text'].split())
 		chars = string.digits + string.ascii_letters + string.punctuation
 		print((len)(chars))
 		print(''.join(secrets.choice(chars) for _ in range (40)))
